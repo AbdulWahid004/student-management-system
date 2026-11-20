@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: sms_postgres
+    environment:
+      POSTGRES_DB: student_management
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - sms_pgdata:/var/lib/postgresql/data
+
+volumes:
+  sms_pgdata:
